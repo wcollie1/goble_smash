@@ -1,0 +1,28 @@
+[
+    {
+        "name": "Armor Proficiency",
+        "level": 1,
+        "type": "General",
+        "description": "You are trained in additional armor."
+    },
+    {
+        "name": "Cat Fall",
+        "level": 1,
+        "type": "Skill",
+        "description": "Reduce fall damage with Acrobatics."
+    },
+    {
+        "name": "Elven Lore",
+        "level": 1,
+        "type": "Ancestry",
+        "description": "You recall elven history and magic.",
+        "class_name": null
+    },
+    {
+        "name": "Reactive Shield",
+        "level": 1,
+        "type": "Class",
+        "description": "Raise your shield as a reaction.",
+        "class_name": "Fighter"
+    }
+]

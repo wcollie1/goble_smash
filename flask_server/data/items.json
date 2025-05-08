@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Shortsword",
+        "type": "Weapon",
+        "level": 0,
+        "description": "Simple melee weapon."
+    },
+    {
+        "name": "Leather Armor",
+        "type": "Armor",
+        "level": 0,
+        "description": "Light armor with decent protection."
+    },
+    {
+        "name": "Adventurer's Pack",
+        "type": "Equipment",
+        "level": 0,
+        "description": "Contains basic supplies."
+    },
+    {
+        "name": "Healing Potion",
+        "type": "Consumable",
+        "level": 1,
+        "description": "Heals a small amount of HP."
+    }
+]

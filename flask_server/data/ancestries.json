@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Human",
+        "hit_points": 8,
+        "speed": 25,
+        "size": "Medium",
+        "traits": "Humanoid"
+    },
+    {
+        "name": "Elf",
+        "hit_points": 6,
+        "speed": 30,
+        "size": "Medium",
+        "traits": "Elf, Humanoid"
+    }
+]

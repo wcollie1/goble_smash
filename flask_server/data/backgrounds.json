@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Warrior",
+        "fixed_boosts": "Strength|Constitution",
+        "description": "You trained in armed or unarmed combat."
+    },
+    {
+        "name": "Street Urchin",
+        "fixed_boosts": "Dexterity|Constitution",
+        "description": "You grew up fending for yourself on city streets."
+    }
+]

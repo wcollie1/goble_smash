@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Fighter",
+        "key_ability": "Strength",
+        "hp_per_level": 10
+    },
+    {
+        "name": "Rogue",
+        "key_ability": "Dexterity",
+        "hp_per_level": 8
+    }
+]
