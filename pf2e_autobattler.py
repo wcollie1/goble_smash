@@ -87,7 +87,7 @@ class Fighter(Character):
     def take_turn(self, enemy, gui, callback):
         gui.show_actions([
             ("Strike (1 action)", lambda: callback(self.attack(enemy, gui, dice=(1, 10))[0])),
-            ("Power Attack (2 actions)", lambda: callback(self.attack(enemy, gui, dice=(2, 10))[0] if gui.actions_left >= 2 else gui.append("Not enough actions."))),
+            ("Power Attack (2 actions)", lambda: gui.append("Not enough actions.") if gui.actions_left < 2 else callback(2) if self.attack(enemy, gui, dice=(2, 10)) else None),
             ("Heal (1 action)", lambda: callback(self.heal(gui))),
         ])
 
@@ -114,21 +114,26 @@ class Rogue(Character):
             used, hit = self.attack(enemy, gui, dice=(1, 6), sneak_attack=sneak)
             if hit and random.random() < 0.5:
                 enemy.off_guard = True
-                gui.append(f"{enemy.name} is now Off-Guard until their next turn!")
+                gui.append(f"{enemy.name} is nksow Off-Guard until their next turn!")
             callback(used)
-        def feint():
-            feint_roll = random.randint(1, 20) + self.attack_bonus
-            will_dc = 10 + enemy.attack_bonus
-            gui.append(f"{self.name} attempts to Feint! d20 + Deception ({self.attack_bonus}) = {feint_roll} vs DC {will_dc}")
-            if feint_roll >= will_dc:
-                gui.append(f"{self.name} successfully feints! {enemy.name} is now Off-Guard.")
-                enemy.off_guard = True
-            else:
-                gui.append("Feint failed.")
-            callback(1)
+        def twin_feint():
+            gui.append(f"{self.name} uses Twin Feint!")
+
+            # First strike: no MAP
+            used1, hit1 = self.attack(enemy, gui, dice=(1, 6))
+            total_used = used1
+
+            # Second strike: enemy is Off-Guard just for this
+            enemy.off_guard = True
+            used2, hit2 = self.attack(enemy, gui, dice=(1, 6), sneak_attack=True)
+            total_used += used2
+
+            enemy.off_guard = False  # remove Off-Guard immediately after second strike
+            callback(2)
+
         gui.show_actions([
             ("Strike (1 action)", strike),
-            ("Feint (1 action)", feint),
+            ("Twin Feint (2 action)", twin_feint),
             ("Heal (1 action)", lambda: callback(self.heal(gui))),
         ])
 
