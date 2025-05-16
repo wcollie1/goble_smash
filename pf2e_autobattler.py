@@ -1,4 +1,9 @@
+import sys
 import random
+from PyQt6.QtWidgets import (
+    QApplication, QWidget, QVBoxLayout, QPushButton, QTextEdit, QHBoxLayout, QInputDialog, QMessageBox
+)
+from PyQt6.QtCore import Qt, QTimer
 
 def roll_dice(sides, num=1):
     rolls = [random.randint(1, sides) for _ in range(num)]
@@ -14,8 +19,7 @@ class Character:
         self.potions = 3
         self.alive = True
         self.off_guard = False
-        self.round_damage = 0  # Tracks damage dealt by this character in the round
-
+        self.round_damage = 0
 
     def is_alive(self):
         return self.hp > 0
@@ -23,279 +27,359 @@ class Character:
     def get_ac(self):
         return self.base_ac - 2 if self.off_guard else self.base_ac
 
-    def take_damage(self, damage):
+    def take_damage(self, damage, gui=None):
         self.hp = max(self.hp - damage, 0)
-        print(f"{self.name} takes {damage} damage! (HP: {self.hp}/{self.max_hp})")
+        msg = f"{self.name} takes {damage} damage! (HP: {self.hp}/{self.max_hp})"
+        if gui: gui.append(msg)
         if self.hp == 0:
             self.alive = False
-            print(f"{self.name} has fallen!")
+            if gui: gui.append(f"{self.name} has fallen!")
 
-    def heal(self):
+    def heal(self, gui=None):
         if self.potions > 0:
-            print(f"{self.name} uses a potion to heal 15 HP.")
+            if gui: gui.append(f"{self.name} uses a potion to heal 15 HP.")
             self.hp = min(self.hp + 15, self.max_hp)
             self.potions -= 1
-            print(f"HP after healing: {self.hp}/{self.max_hp} | Potions left: {self.potions}")
+            if gui: gui.append(f"HP after healing: {self.hp}/{self.max_hp} | Potions left: {self.potions}")
             return 1
         else:
-            print("No potions left!")
+            if gui: gui.append("No potions left!")
             return 0
 
-    def attack(self, target, dice=(1, 8), bonus_damage=0, sneak_attack=False):
+    def attack(self, target, gui=None, dice=(1, 8), bonus_damage=0, sneak_attack=False):
         roll = random.randint(1, 20)
         total = roll + self.attack_bonus
         target_ac = target.get_ac()
-        print(f"{self.name} rolls to hit: d20({roll}) + ATK({self.attack_bonus}) = {total} vs AC {target_ac}")
+        if gui: gui.append(f"{self.name} rolls to hit: d20({roll}) + ATK({self.attack_bonus}) = {total} vs AC {target_ac}")
 
         if roll == 1:
-            print("Critical Miss!")
+            if gui: gui.append("Critical Miss!")
             return 1, False
         elif roll == 20 or total >= target_ac + 10:
-            print("Critical Hit!")
+            if gui: gui.append("Critical Hit!")
             dice_num, dice_sides = dice
             rolls, dmg = roll_dice(dice_sides, dice_num * 2)
         elif total >= target_ac:
-            print("Hit!")
+            if gui: gui.append("Hit!")
             dice_num, dice_sides = dice
             rolls, dmg = roll_dice(dice_sides, dice_num)
         else:
-            print("Miss!")
+            if gui: gui.append("Miss!")
             return 1, False
 
         if sneak_attack:
             sa_roll, sa_dmg = roll_dice(6)
             dmg += sa_dmg
-            print(f"Sneak Attack! Extra d6: {sa_roll} = +{sa_dmg}")
+            if gui: gui.append(f"Sneak Attack! Extra d6: {sa_roll} = +{sa_dmg}")
 
         dmg += bonus_damage
-        print(f"Damage Total: {dmg}")
-        target.take_damage(dmg)
-        return 1, dmg  # Always return number of actions used and damage dealt
+        if gui: gui.append(f"Damage Total: {dmg}")
+        target.take_damage(dmg, gui)
+        return 1, dmg
 
-
-    def take_turn(self, enemy):
+    def take_turn(self, enemy, gui, callback):
         raise NotImplementedError()
 
 class Fighter(Character):
     def __init__(self, name):
         super().__init__(name, hp=50, ac=18, attack_bonus=9)
 
-    def take_turn(self, enemy):
-        actions = 3
-        while actions > 0 and enemy.is_alive():
-            print(f"\n{self.name}'s HP: {self.hp}/{self.max_hp} | Potions: {self.potions}")
-            print(f"{self.name}'s Actions Left: {actions}")
-            print("1. Strike (1 action)\n2. Power Attack (2 actions)\n3. Heal (1 action)")
-            choice = input("Choose action: ").strip()
-            if choice == "1" and actions >= 1:
-                used, _ = self.attack(enemy, dice=(1, 10))
-                actions -= used
-            elif choice == "2" and actions >= 2:
-                print(f"{self.name} uses Power Attack!")
-                _, _ = self.attack(enemy, dice=(2, 10))
-                actions -= 2
-            elif choice == "3" and actions >= 1:
-                actions -= self.heal()
-            else:
-                print("Invalid or not enough actions.")
+    def take_turn(self, enemy, gui, callback):
+        gui.show_actions([
+            ("Strike (1 action)", lambda: callback(self.attack(enemy, gui, dice=(1, 10))[0])),
+            ("Power Attack (2 actions)", lambda: callback(self.attack(enemy, gui, dice=(2, 10))[0] if gui.actions_left >= 2 else gui.append("Not enough actions."))),
+            ("Heal (1 action)", lambda: callback(self.heal(gui))),
+        ])
 
 class AIFighter(Fighter):
-    def take_turn(self, enemy):
-        actions = 3
-        print(f"\n{self.name} (AI Fighter) begins their turn.")
+    def take_turn(self, enemy, gui, callback):
+        actions = gui.actions_left
         while actions > 0 and enemy.is_alive():
             if actions >= 2:
-                print(f"{self.name} uses Power Attack!")
-                _, _ = self.attack(enemy, dice=(2, 10))
+                gui.append(f"{self.name} uses Power Attack!")
+                _, _ = self.attack(enemy, gui, dice=(2, 10))
                 actions -= 2
             elif actions == 1:
-                _, _ = self.attack(enemy, dice=(1, 10))
+                _, _ = self.attack(enemy, gui, dice=(1, 10))
                 actions -= 1
+        callback(0)
 
 class Rogue(Character):
     def __init__(self, name):
         super().__init__(name, hp=38, ac=17, attack_bonus=8)
-        
-    def take_turn(self, enemy):
-        actions = 3
-        while actions > 0 and enemy.is_alive():
-            print(f"\n{self.name}'s HP: {self.hp}/{self.max_hp} | Potions: {self.potions}")
-            print(f"{self.name}'s Actions Left: {actions}")
-            print("1. Strike (1 action)\n2. Feint (1 action)\n3. Heal (1 action)")
-            choice = input("Choose action: ").strip()
-            if choice == "1" and actions >= 1:
-                sneak = enemy.off_guard
-                used, hit = self.attack(enemy, dice=(1, 6), sneak_attack=sneak)
-                actions -= used
-                if hit and random.random() < 0.5:
-                    enemy.off_guard = True
-                    print(f"{enemy.name} is now Off-Guard until their next turn!")
-            elif choice == "2" and actions >= 1:
-                feint_roll = random.randint(1, 20) + self.attack_bonus
-                will_dc = 10 + enemy.attack_bonus
-                print(f"{self.name} attempts to Feint! d20 + Deception ({self.attack_bonus}) = {feint_roll} vs DC {will_dc}")
-                if feint_roll >= will_dc:
-                    print(f"{self.name} successfully feints! {enemy.name} is now Off-Guard.")
-                    enemy.off_guard = True
-                else:
-                    print("Feint failed.")
-                actions -= 1
-            elif choice == "3" and actions >= 1:
-                actions -= self.heal()
+
+    def take_turn(self, enemy, gui, callback):
+        def strike():
+            sneak = enemy.off_guard
+            used, hit = self.attack(enemy, gui, dice=(1, 6), sneak_attack=sneak)
+            if hit and random.random() < 0.5:
+                enemy.off_guard = True
+                gui.append(f"{enemy.name} is now Off-Guard until their next turn!")
+            callback(used)
+        def feint():
+            feint_roll = random.randint(1, 20) + self.attack_bonus
+            will_dc = 10 + enemy.attack_bonus
+            gui.append(f"{self.name} attempts to Feint! d20 + Deception ({self.attack_bonus}) = {feint_roll} vs DC {will_dc}")
+            if feint_roll >= will_dc:
+                gui.append(f"{self.name} successfully feints! {enemy.name} is now Off-Guard.")
+                enemy.off_guard = True
             else:
-                print("Invalid or not enough actions.")
+                gui.append("Feint failed.")
+            callback(1)
+        gui.show_actions([
+            ("Strike (1 action)", strike),
+            ("Feint (1 action)", feint),
+            ("Heal (1 action)", lambda: callback(self.heal(gui))),
+        ])
 
 class AIRogue(Rogue):
-    def take_turn(self, enemy):
-        actions = 3
-        print(f"\n{self.name} (AI Rogue) begins their turn.")
+    def take_turn(self, enemy, gui, callback):
+        actions = gui.actions_left
         while actions > 0 and enemy.is_alive():
             if not enemy.off_guard and actions >= 1:
                 feint_roll = random.randint(1, 20) + self.attack_bonus
                 will_dc = 10 + enemy.attack_bonus
-                print(f"{self.name} attempts to Feint! d20 + Deception ({self.attack_bonus}) = {feint_roll} vs DC {will_dc}")
+                gui.append(f"{self.name} attempts to Feint! d20 + Deception ({self.attack_bonus}) = {feint_roll} vs DC {will_dc}")
                 if feint_roll >= will_dc:
-                    print(f"{self.name} successfully feints! {enemy.name} is now Off-Guard.")
+                    gui.append(f"{self.name} successfully feints! {enemy.name} is now Off-Guard.")
                     enemy.off_guard = True
                 else:
-                    print("Feint failed.")
+                    gui.append("Feint failed.")
                 actions -= 1
             else:
                 sneak = enemy.off_guard
-                used, hit = self.attack(enemy, dice=(1, 6), sneak_attack=sneak)
+                used, hit = self.attack(enemy, gui, dice=(1, 6), sneak_attack=sneak)
                 actions -= used
+        callback(0)
 
 class Wizard(Character):
     def __init__(self, name):
         super().__init__(name, hp=32, ac=16, attack_bonus=6)
         self.shield_up = False
 
-    def take_turn(self, enemy):
-        actions = 3
-        while actions > 0 and enemy.is_alive():
-            print(f"\n{self.name}'s HP: {self.hp}/{self.max_hp} | Potions: {self.potions}")
-            print(f"{self.name}'s Actions Left: {actions}")
-            print("1. Arcane Blast (1 action)\n2. Magic Missile (1 - 3 actions)\n3. Shield (1 action)\n4. Heal(1 action)")
-            choice = input("Choose action: ").strip()
-            if choice == "1" and actions >= 1:
-                used, _ = self.attack(enemy, dice=(2, 4))
-                actions -= used
-                if self.shield_up:
-                    print("Shield fades.")
-                    self.base_ac -= 2
-                    self.shield_up = False
-
-            elif choice == "2":
-                while True:
-                    missile_count = input("How many actions to use for Magic Missile (1–3)? ").strip()
-                    if missile_count in {"1", "2", "3"}:
-                        missile_count = int(missile_count)
-                        if missile_count > actions:
-                            print("Not enough actions remaining.")
-                            continue
-                        break
-                    else:
-                        print("Invalid number.")
-                for i in range(missile_count):
-                    roll, dmg = roll_dice(4)
-                    force_dmg = dmg + 1
-                    print(f"{self.name} fires Magic Missile #{i+1}! Roll: {roll} + 1 = {force_dmg} force damage.")
-                    enemy.take_damage(force_dmg)
-                actions -= missile_count
-                if self.shield_up:
-                    print("Shield fades.")
-                    self.base_ac -= 2
-                    self.shield_up = False
-
-            elif choice == "3" and actions >= 1 and not self.shield_up:
-                print(f"{self.name} casts Shield! +2 AC until next turn.")
-                self.base_ac += 2
-                self.shield_up = True
-                actions -= 1
-
-            elif choice == "4" and actions >= 1:
-                actions -= self.heal()
-
-            else:
-                print("Invalid or not enough actions.")
-
+    def take_turn(self, enemy, gui, callback):
+        def arcane_blast():
+            used, _ = self.attack(enemy, gui, dice=(2, 4))
+            if self.shield_up:
+                gui.append("Shield fades.")
+                self.base_ac -= 2
+                self.shield_up = False
+            callback(used)
+        def magic_missile():
+            count, ok = QInputDialog.getInt(gui, "Magic Missile", "How many actions to use (1-3)?", 1, 1, 3)
+            if not ok or count > gui.actions_left:
+                gui.append("Not enough actions or cancelled.")
+                return
+            for i in range(count):
+                roll, dmg = roll_dice(4)
+                force_dmg = dmg + 1
+                gui.append(f"{self.name} fires Magic Missile #{i+1}! Roll: {roll} + 1 = {force_dmg} force damage.")
+                enemy.take_damage(force_dmg, gui)
+            if self.shield_up:
+                gui.append("Shield fades.")
+                self.base_ac -= 2
+                self.shield_up = False
+            callback(count)
+        def shield():
+            gui.append(f"{self.name} casts Shield! +2 AC until next turn.")
+            self.base_ac += 2
+            self.shield_up = True
+            callback(1)
+        gui.show_actions([
+            ("Arcane Blast (1 action)", arcane_blast),
+            ("Magic Missile (1-3 actions)", magic_missile),
+            ("Shield (1 action)", shield if not self.shield_up else None),
+            ("Heal (1 action)", lambda: callback(self.heal(gui))),
+        ])
 
 class AIWizard(Wizard):
-    def take_turn(self, enemy):
-        actions = 3
-        print(f"\n{self.name} (AI Wizard) begins their turn.")
+    def take_turn(self, enemy, gui, callback):
+        actions = gui.actions_left
         while actions > 0 and enemy.is_alive():
             if not self.shield_up:
-                print(f"{self.name} casts Shield!")
+                gui.append(f"{self.name} casts Shield!")
                 self.base_ac += 2
                 self.shield_up = True
                 actions -= 1
             else:
-                _, _ = self.attack(enemy, dice=(2, 4))
+                _, _ = self.attack(enemy, gui, dice=(2, 4))
                 actions -= 1
                 if self.shield_up:
                     self.base_ac -= 2
                     self.shield_up = False
+        callback(0)
 
 class Enemy(Character):
     def __init__(self, name, hp, ac, attack_bonus, damage_dice=(1, 8)):
         super().__init__(name, hp, ac, attack_bonus)
         self.damage_dice = damage_dice
 
-    def take_turn(self, player):
+    def take_turn(self, player, gui, callback):
         actions = 3
-        print(f"\n{self.name} takes its turn!")
+        gui.append(f"\n{self.name} takes its turn!")
         while actions > 0 and player.is_alive():
-            used, _ = self.attack(player, dice=self.damage_dice)
+            used, _ = self.attack(player, gui, dice=self.damage_dice)
             actions -= used
         self.off_guard = False
+        callback(0)
 
-def battle(party, enemies):
-    for enemy in enemies:
-        if not any(member.is_alive() for member in party):
-            break
-        print(f"\n--- A wild {enemy.name} appears! ---")
-        while enemy.is_alive() and any(member.is_alive() for member in party):
-            for member in party:
-                if member.is_alive() and enemy.is_alive():  # ✅ check enemy status again before turn
-                    member.take_turn(enemy)
+class BattleGUI(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("PF2E Autobattler")
+        self.resize(700, 500)
+        self.layout = QVBoxLayout(self)
+        self.text = QTextEdit(self)
+        self.text.setReadOnly(True)
+        self.layout.addWidget(self.text)
+        self.button_layout = QHBoxLayout()
+        self.layout.addLayout(self.button_layout)
+        self.actions_left = 3
+        self.party = []
+        self.enemies = []
+        self.current_enemy = None
+        self.current_member_idx = 0
+        self.rest_phase = False
+        self.init_game()
 
-            if enemy.is_alive():
-                enemy.take_turn(party[0])  # Attacks the player by default
-        if all(member.is_alive() for member in party) and enemy != enemies[-1]:
-            print("\n--- Rest Phase ---")
-            rest = input("Use a potion before next fight? (y/n): ").strip().lower()
-            if rest == 'y':
-                party[0].heal()
-    if any(member.is_alive() for member in party):
-        print("\n🏆 Your party has defeated all foes!")
-    else:
-        print("\n💀 Your party was defeated...")
+    def append(self, msg):
+        self.text.append(msg)
+        self.text.verticalScrollBar().setValue(self.text.verticalScrollBar().maximum())
 
-def start_game():
-    print("Choose your class:\n1. Fighter\n2. Rogue\n3. Wizard")
-    choice = input("Enter 1-3: ").strip()
-    if choice == "1":
-        player = Fighter("Valeros")
-        party = [player, AIRogue("Merisiel"), AIWizard("Ezren")]
-    elif choice == "2":
-        player = Rogue("Merisiel")
-        party = [player, AIFighter("Valeros"), AIWizard("Ezren")]
-    elif choice == "3":
-        player = Wizard("Ezren")
-        party = [player, AIFighter("Valeros"), AIRogue("Merisiel")]
-    else:
-        print("Defaulting to Fighter.")
-        player = Fighter("Valeros")
-        party = [player, AIRogue("Merisiel"), AIWizard("Ezren")]
+    def show_actions(self, actions):
+        # Remove old buttons
+        for i in reversed(range(self.button_layout.count())):
+            btn = self.button_layout.itemAt(i).widget()
+            if btn: btn.setParent(None)
+        # Add new buttons
+        for label, func in actions:
+            if func is None: continue
+            btn = QPushButton(label)
+            btn.clicked.connect(lambda _, f=func: self.handle_action(f))
+            self.button_layout.addWidget(btn)
 
-    enemies = [
-        Enemy("Goblin", hp=20, ac=15, attack_bonus=5),
-        Enemy("Ogre", hp=40, ac=17, attack_bonus=7, damage_dice=(2, 6)),
-        Enemy("Wyvern", hp=55, ac=19, attack_bonus=9, damage_dice=(2, 8))
-    ]
+    def handle_action(self, func):
+        used = func()
+        if used is not None:
+            self.actions_left -= used
+            self.update_status()
+            if self.actions_left <= 0 or not self.current_enemy.is_alive():
+                QTimer.singleShot(500, self.next_turn)
 
-    battle(party, enemies)
+    def update_status(self):
+        if self.party:
+            player = self.party[0]
+            self.append(f"\n{player.name}'s HP: {player.hp}/{player.max_hp} | Potions: {player.potions} | Actions Left: {self.actions_left}")
+
+    def init_game(self):
+        self.append("Choose your class:\n1. Fighter\n2. Rogue\n3. Wizard")
+        self.show_actions([
+            ("Fighter", lambda: self.choose_class("Fighter")),
+            ("Rogue", lambda: self.choose_class("Rogue")),
+            ("Wizard", lambda: self.choose_class("Wizard")),
+        ])
+
+    def choose_class(self, choice):
+        if choice == "Fighter":
+            player = Fighter("Valeros")
+            self.party = [player, AIRogue("Merisiel"), AIWizard("Ezren")]
+        elif choice == "Rogue":
+            player = Rogue("Merisiel")
+            self.party = [player, AIFighter("Valeros"), AIWizard("Ezren")]
+        elif choice == "Wizard":
+            player = Wizard("Ezren")
+            self.party = [player, AIFighter("Valeros"), AIRogue("Merisiel")]
+        self.enemies = [
+            Enemy("Goblin", hp=20, ac=15, attack_bonus=5),
+            Enemy("Ogre", hp=40, ac=17, attack_bonus=7, damage_dice=(2, 6)),
+            Enemy("Wyvern", hp=55, ac=19, attack_bonus=9, damage_dice=(2, 8))
+        ]
+        self.current_enemy = None
+        self.current_member_idx = 0
+        self.rest_phase = False
+        self.start_battle()
+
+    def start_battle(self):
+        if not self.enemies or not any(m.is_alive() for m in self.party):
+            self.end_battle()
+            return
+        self.current_enemy = self.enemies.pop(0)
+        self.append(f"\n--- A wild {self.current_enemy.name} appears! ---")
+        self.current_member_idx = 0
+        self.next_turn()
+
+    def next_turn(self):
+        # Remove old buttons
+        for i in reversed(range(self.button_layout.count())):
+            btn = self.button_layout.itemAt(i).widget()
+            if btn: btn.setParent(None)
+        if not self.current_enemy.is_alive():
+            if all(m.is_alive() for m in self.party) and self.enemies:
+                self.rest_phase = True
+                self.append("\n--- Rest Phase ---")
+                self.show_actions([
+                    ("Use Potion", lambda: self.rest_action(True)),
+                    ("Continue", lambda: self.rest_action(False)),
+                ])
+            else:
+                self.start_battle()
+            return
+        if self.current_member_idx >= len(self.party):
+            # Enemy's turn
+            if self.party[0].is_alive():
+                self.current_enemy.take_turn(self.party[0], self, lambda _: self.after_enemy_turn())
+            else:
+                self.end_battle()
+            return
+        member = self.party[self.current_member_idx]
+        if not member.is_alive():
+            self.current_member_idx += 1
+            self.next_turn()
+            return
+        self.actions_left = 3
+        self.update_status()
+        if self.current_member_idx == 0:
+            # Player's turn
+            member.take_turn(self.current_enemy, self, self.after_player_action)
+        else:
+            # AI turn
+            member.take_turn(self.current_enemy, self, lambda _: self.after_ai_action())
+
+    def after_player_action(self, used):
+        self.actions_left -= used
+        self.update_status()
+        if self.actions_left > 0 and self.current_enemy.is_alive():
+            self.party[0].take_turn(self.current_enemy, self, self.after_player_action)
+        else:
+            self.current_member_idx += 1
+            QTimer.singleShot(500, self.next_turn)
+
+    def after_ai_action(self):
+        self.current_member_idx += 1
+        QTimer.singleShot(500, self.next_turn)
+
+    def after_enemy_turn(self):
+        self.current_member_idx = 0
+        QTimer.singleShot(500, self.next_turn)
+
+    def rest_action(self, use_potion):
+        if use_potion:
+            self.party[0].heal(self)
+        self.rest_phase = False
+        self.start_battle()
+
+    def end_battle(self):
+        if any(m.is_alive() for m in self.party):
+            self.append("\n🏆 Your party has defeated all foes!")
+        else:
+            self.append("\n💀 Your party was defeated...")
+        self.show_actions([
+            ("Restart", self.init_game),
+            ("Quit", self.close),
+        ])
 
 if __name__ == "__main__":
-    start_game()
+    app = QApplication(sys.argv)
+    gui = BattleGUI()
+    gui.show()
+    sys.exit(app.exec())
