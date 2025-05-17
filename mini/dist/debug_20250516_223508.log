@@ -1,0 +1,160 @@
+2025-05-16 22:35:09,016 - INFO - Python version: 3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]
+2025-05-16 22:35:09,016 - INFO - Pygame version: 2.6.1
+2025-05-16 22:35:09,016 - INFO - Working directory: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\dist
+2025-05-16 22:35:09,016 - INFO - System platform: win32
+2025-05-16 22:35:09,016 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1422922
+2025-05-16 22:35:09,016 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/fighter.webp
+2025-05-16 22:35:09,017 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1422922
+2025-05-16 22:35:09,018 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/rogue.webp
+2025-05-16 22:35:09,018 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1422922
+2025-05-16 22:35:09,018 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wizard.webp
+2025-05-16 22:35:09,018 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1422922
+2025-05-16 22:35:09,018 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/goblin.webp
+2025-05-16 22:35:09,018 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1422922
+2025-05-16 22:35:09,018 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/ogre.webp
+2025-05-16 22:35:09,018 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1422922
+2025-05-16 22:35:09,018 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wyvern.webp
+2025-05-16 22:35:10,140 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/rogue.webp
+2025-05-16 22:35:10,141 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/rogue.webp
+2025-05-16 22:35:10,143 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/rogue.webp
+2025-05-16 22:35:10,143 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/fighter.webp
+2025-05-16 22:35:10,143 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/fighter.webp
+2025-05-16 22:35:10,145 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/fighter.webp
+2025-05-16 22:35:10,145 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wizard.webp
+2025-05-16 22:35:10,145 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wizard.webp
+2025-05-16 22:35:10,149 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wizard.webp
+2025-05-16 22:35:10,150 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/goblin.webp
+2025-05-16 22:35:10,150 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/goblin.webp
+2025-05-16 22:35:10,157 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/goblin.webp
+2025-05-16 22:35:10,158 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/ogre.webp
+2025-05-16 22:35:10,158 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/ogre.webp
+2025-05-16 22:35:10,164 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/ogre.webp
+2025-05-16 22:35:10,164 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wyvern.webp
+2025-05-16 22:35:10,164 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wyvern.webp
+2025-05-16 22:35:10,171 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wyvern.webp
+2025-05-16 22:35:13,334 - INFO - Merisiel attacks Goblin with dice (1, 6)
+2025-05-16 22:35:13,334 - INFO - Merisiel attacks Goblin with dice (1, 6)
+2025-05-16 22:35:13,334 - DEBUG - Handling action result: 2 actions used, 3 actions remaining
+2025-05-16 22:35:13,334 - DEBUG - Actions remaining after update: 1
+2025-05-16 22:35:14,725 - INFO - Merisiel attacks Goblin with dice (1, 6)
+2025-05-16 22:35:14,725 - DEBUG - Handling action result: 1 actions used, 1 actions remaining
+2025-05-16 22:35:14,725 - DEBUG - Actions remaining after update: 0
+2025-05-16 22:35:14,725 - DEBUG - AI Fighter attempting Power Attack with 3 actions
+2025-05-16 22:35:14,725 - INFO - Valeros attempts Power Attack with 3 actions remaining
+2025-05-16 22:35:14,725 - INFO - Valeros attacks Goblin with dice (2, 10)
+2025-05-16 22:35:14,725 - INFO - Power Attack completed. Attack result: (1, True). Using 2 actions.
+2025-05-16 22:35:14,725 - DEBUG - AI Fighter has 1 actions remaining after Power Attack
+2025-05-16 22:35:17,213 - INFO - Merisiel attacks Ogre with dice (1, 6)
+2025-05-16 22:35:17,213 - INFO - Merisiel attacks Ogre with dice (1, 6)
+2025-05-16 22:35:17,213 - DEBUG - Handling action result: 2 actions used, 3 actions remaining
+2025-05-16 22:35:17,213 - DEBUG - Actions remaining after update: 1
+2025-05-16 22:35:18,478 - INFO - Merisiel attacks Ogre with dice (1, 6)
+2025-05-16 22:35:18,479 - DEBUG - Handling action result: 1 actions used, 1 actions remaining
+2025-05-16 22:35:18,479 - DEBUG - Actions remaining after update: 0
+2025-05-16 22:35:18,479 - DEBUG - AI Fighter attempting Power Attack with 3 actions
+2025-05-16 22:35:18,479 - INFO - Valeros attempts Power Attack with 3 actions remaining
+2025-05-16 22:35:18,479 - INFO - Valeros attacks Ogre with dice (2, 10)
+2025-05-16 22:35:18,479 - INFO - Power Attack completed. Attack result: (1, False). Using 2 actions.
+2025-05-16 22:35:18,479 - DEBUG - AI Fighter has 1 actions remaining after Power Attack
+2025-05-16 22:35:18,479 - INFO - Valeros attacks Ogre with dice (1, 10)
+2025-05-16 22:35:18,479 - INFO - Ezren attacks Ogre with dice (2, 4)
+2025-05-16 22:35:18,479 - INFO - Ogre attacks Ezren with dice (2, 6)
+2025-05-16 22:35:18,479 - INFO - Ogre attacks Ezren with dice (2, 6)
+2025-05-16 22:35:18,479 - INFO - Ogre attacks Ezren with dice (2, 6)
+2025-05-16 22:35:19,601 - INFO - Merisiel attacks Ogre with dice (1, 6)
+2025-05-16 22:35:19,601 - INFO - Merisiel attacks Ogre with dice (1, 6)
+2025-05-16 22:35:19,601 - DEBUG - Handling action result: 2 actions used, 3 actions remaining
+2025-05-16 22:35:19,601 - DEBUG - Actions remaining after update: 1
+2025-05-16 22:35:20,266 - INFO - Merisiel attacks Ogre with dice (1, 6)
+2025-05-16 22:35:20,267 - DEBUG - Handling action result: 1 actions used, 1 actions remaining
+2025-05-16 22:35:20,267 - DEBUG - Actions remaining after update: 0
+2025-05-16 22:35:20,267 - DEBUG - AI Fighter attempting Power Attack with 3 actions
+2025-05-16 22:35:20,267 - INFO - Valeros attempts Power Attack with 3 actions remaining
+2025-05-16 22:35:20,267 - INFO - Valeros attacks Ogre with dice (2, 10)
+2025-05-16 22:35:20,267 - INFO - Power Attack completed. Attack result: (1, True). Using 2 actions.
+2025-05-16 22:35:20,267 - DEBUG - AI Fighter has 1 actions remaining after Power Attack
+2025-05-16 22:35:20,267 - INFO - Valeros attacks Ogre with dice (1, 10)
+2025-05-16 22:35:20,267 - INFO - Ezren attacks Ogre with dice (2, 4)
+2025-05-16 22:35:20,267 - INFO - Ezren attacks Ogre with dice (2, 4)
+2025-05-16 22:35:22,178 - INFO - Merisiel attacks Wyvern with dice (1, 6)
+2025-05-16 22:35:22,178 - INFO - Merisiel attacks Wyvern with dice (1, 6)
+2025-05-16 22:35:22,178 - DEBUG - Handling action result: 2 actions used, 3 actions remaining
+2025-05-16 22:35:22,178 - DEBUG - Actions remaining after update: 1
+2025-05-16 22:35:22,825 - INFO - Merisiel attacks Wyvern with dice (1, 6)
+2025-05-16 22:35:22,825 - DEBUG - Handling action result: 1 actions used, 1 actions remaining
+2025-05-16 22:35:22,825 - DEBUG - Actions remaining after update: 0
+2025-05-16 22:35:22,825 - DEBUG - AI Fighter attempting Power Attack with 3 actions
+2025-05-16 22:35:22,825 - INFO - Valeros attempts Power Attack with 3 actions remaining
+2025-05-16 22:35:22,825 - INFO - Valeros attacks Wyvern with dice (2, 10)
+2025-05-16 22:35:22,825 - INFO - Power Attack completed. Attack result: (1, False). Using 2 actions.
+2025-05-16 22:35:22,825 - DEBUG - AI Fighter has 1 actions remaining after Power Attack
+2025-05-16 22:35:22,825 - INFO - Valeros attacks Wyvern with dice (1, 10)
+2025-05-16 22:35:22,825 - INFO - Ezren attacks Wyvern with dice (2, 4)
+2025-05-16 22:35:22,825 - INFO - Wyvern attacks Merisiel with dice (2, 8)
+2025-05-16 22:35:22,825 - INFO - Wyvern attacks Merisiel with dice (2, 8)
+2025-05-16 22:35:22,825 - INFO - Wyvern attacks Merisiel with dice (2, 8)
+2025-05-16 22:35:23,760 - INFO - Merisiel attacks Wyvern with dice (1, 6)
+2025-05-16 22:35:23,760 - INFO - Merisiel attacks Wyvern with dice (1, 6)
+2025-05-16 22:35:23,760 - DEBUG - Handling action result: 2 actions used, 3 actions remaining
+2025-05-16 22:35:23,760 - DEBUG - Actions remaining after update: 1
+2025-05-16 22:35:24,374 - INFO - Merisiel attacks Wyvern with dice (1, 6)
+2025-05-16 22:35:24,374 - DEBUG - Handling action result: 1 actions used, 1 actions remaining
+2025-05-16 22:35:24,374 - DEBUG - Actions remaining after update: 0
+2025-05-16 22:35:24,374 - DEBUG - AI Fighter attempting Power Attack with 3 actions
+2025-05-16 22:35:24,374 - INFO - Valeros attempts Power Attack with 3 actions remaining
+2025-05-16 22:35:24,374 - INFO - Valeros attacks Wyvern with dice (2, 10)
+2025-05-16 22:35:24,374 - INFO - Power Attack completed. Attack result: (1, False). Using 2 actions.
+2025-05-16 22:35:24,374 - DEBUG - AI Fighter has 1 actions remaining after Power Attack
+2025-05-16 22:35:24,374 - INFO - Valeros attacks Wyvern with dice (1, 10)
+2025-05-16 22:35:24,374 - INFO - Ezren attacks Wyvern with dice (2, 4)
+2025-05-16 22:35:24,374 - INFO - Ezren attacks Wyvern with dice (2, 4)
+2025-05-16 22:35:24,374 - INFO - Wyvern attacks Merisiel with dice (2, 8)
+2025-05-16 22:35:24,374 - INFO - Wyvern attacks Merisiel with dice (2, 8)
+2025-05-16 22:35:24,375 - INFO - Wyvern attacks Merisiel with dice (2, 8)
+2025-05-16 22:35:24,375 - DEBUG - AI Fighter attempting Power Attack with 3 actions
+2025-05-16 22:35:24,375 - INFO - Valeros attempts Power Attack with 3 actions remaining
+2025-05-16 22:35:24,375 - INFO - Valeros attacks Wyvern with dice (2, 10)
+2025-05-16 22:35:24,375 - INFO - Power Attack completed. Attack result: (1, False). Using 2 actions.
+2025-05-16 22:35:24,375 - DEBUG - AI Fighter has 1 actions remaining after Power Attack
+2025-05-16 22:35:24,375 - INFO - Valeros attacks Wyvern with dice (1, 10)
+2025-05-16 22:35:24,375 - INFO - Ezren attacks Wyvern with dice (2, 4)
+2025-05-16 22:35:32,241 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/fighter.webp
+2025-05-16 22:35:32,242 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/fighter.webp
+2025-05-16 22:35:32,245 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/fighter.webp
+2025-05-16 22:35:32,245 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/rogue.webp
+2025-05-16 22:35:32,245 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/rogue.webp
+2025-05-16 22:35:32,247 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/rogue.webp
+2025-05-16 22:35:32,247 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wizard.webp
+2025-05-16 22:35:32,247 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wizard.webp
+2025-05-16 22:35:32,251 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wizard.webp
+2025-05-16 22:35:32,251 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/goblin.webp
+2025-05-16 22:35:32,252 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/goblin.webp
+2025-05-16 22:35:32,259 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/goblin.webp
+2025-05-16 22:35:32,260 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/ogre.webp
+2025-05-16 22:35:32,260 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/ogre.webp
+2025-05-16 22:35:32,266 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/ogre.webp
+2025-05-16 22:35:32,266 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wyvern.webp
+2025-05-16 22:35:32,266 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wyvern.webp
+2025-05-16 22:35:32,273 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1422922\images/wyvern.webp
+2025-05-16 22:35:33,968 - INFO - Valeros attempts Power Attack with 3 actions remaining
+2025-05-16 22:35:33,968 - INFO - Valeros attacks Goblin with dice (2, 10)
+2025-05-16 22:35:33,968 - INFO - Power Attack completed. Attack result: (1, True). Using 2 actions.
+2025-05-16 22:35:33,968 - DEBUG - Handling action result: 2 actions used, 3 actions remaining
+2025-05-16 22:35:33,968 - DEBUG - Actions remaining after update: 1
+2025-05-16 22:35:35,150 - INFO - Valeros attacks Goblin with dice (1, 10)
+2025-05-16 22:35:35,150 - DEBUG - Handling action result: 1 actions used, 1 actions remaining
+2025-05-16 22:35:35,150 - DEBUG - Actions remaining after update: 0
+2025-05-16 22:35:35,150 - INFO - Merisiel attacks Goblin with dice (1, 6)
+2025-05-16 22:35:35,150 - INFO - Merisiel attacks Goblin with dice (1, 6)
+2025-05-16 22:35:35,150 - INFO - Ezren attacks Goblin with dice (2, 4)
+2025-05-16 22:35:35,150 - INFO - Goblin attacks Valeros with dice (1, 8)
+2025-05-16 22:35:35,150 - INFO - Goblin attacks Valeros with dice (1, 8)
+2025-05-16 22:35:35,150 - INFO - Goblin attacks Valeros with dice (1, 8)
+2025-05-16 22:35:36,273 - INFO - Valeros attempts Power Attack with 3 actions remaining
+2025-05-16 22:35:36,273 - INFO - Valeros attacks Goblin with dice (2, 10)
+2025-05-16 22:35:36,273 - INFO - Power Attack completed. Attack result: (1, False). Using 2 actions.
+2025-05-16 22:35:36,273 - DEBUG - Handling action result: 2 actions used, 3 actions remaining
+2025-05-16 22:35:36,273 - DEBUG - Actions remaining after update: 1
+2025-05-16 22:35:36,843 - INFO - Valeros attacks Goblin with dice (1, 10)
+2025-05-16 22:35:36,843 - DEBUG - Handling action result: 1 actions used, 1 actions remaining
+2025-05-16 22:35:36,843 - DEBUG - Actions remaining after update: 0

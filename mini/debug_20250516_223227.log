@@ -1,0 +1,46 @@
+2025-05-16 22:32:28,531 - INFO - Python version: 3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]
+2025-05-16 22:32:28,531 - INFO - Pygame version: 2.6.1
+2025-05-16 22:32:28,531 - INFO - Working directory: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini
+2025-05-16 22:32:28,531 - INFO - System platform: win32
+2025-05-16 22:32:28,531 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini
+2025-05-16 22:32:28,533 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/fighter.webp
+2025-05-16 22:32:28,533 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini
+2025-05-16 22:32:28,533 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/rogue.webp
+2025-05-16 22:32:28,533 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini
+2025-05-16 22:32:28,533 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/wizard.webp
+2025-05-16 22:32:28,533 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini
+2025-05-16 22:32:28,533 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/goblin.webp
+2025-05-16 22:32:28,533 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini
+2025-05-16 22:32:28,533 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/ogre.webp
+2025-05-16 22:32:28,533 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini
+2025-05-16 22:32:28,533 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/wyvern.webp
+2025-05-16 22:32:35,700 - INFO - Attempting to load sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/fighter.webp
+2025-05-16 22:32:35,700 - DEBUG - Sprite path exists: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/fighter.webp
+2025-05-16 22:32:35,703 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/fighter.webp
+2025-05-16 22:32:35,703 - INFO - Attempting to load sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/rogue.webp
+2025-05-16 22:32:35,703 - DEBUG - Sprite path exists: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/rogue.webp
+2025-05-16 22:32:35,705 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/rogue.webp
+2025-05-16 22:32:35,705 - INFO - Attempting to load sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/wizard.webp
+2025-05-16 22:32:35,705 - DEBUG - Sprite path exists: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/wizard.webp
+2025-05-16 22:32:35,709 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/wizard.webp
+2025-05-16 22:32:35,709 - INFO - Attempting to load sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/goblin.webp
+2025-05-16 22:32:35,709 - DEBUG - Sprite path exists: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/goblin.webp
+2025-05-16 22:32:35,716 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/goblin.webp
+2025-05-16 22:32:35,716 - INFO - Attempting to load sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/ogre.webp
+2025-05-16 22:32:35,716 - DEBUG - Sprite path exists: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/ogre.webp
+2025-05-16 22:32:35,723 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/ogre.webp
+2025-05-16 22:32:35,723 - INFO - Attempting to load sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/wyvern.webp
+2025-05-16 22:32:35,723 - DEBUG - Sprite path exists: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/wyvern.webp
+2025-05-16 22:32:35,730 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\images/wyvern.webp
+2025-05-16 22:32:37,199 - INFO - Valeros attempts Power Attack with 3 actions remaining
+2025-05-16 22:32:37,199 - INFO - Valeros attacks Goblin with dice (2, 10)
+2025-05-16 22:32:37,199 - INFO - Power Attack completed. Hit: True. Using 2 actions.
+2025-05-16 22:32:37,199 - DEBUG - Handling action result: 2 actions used, 3 actions remaining
+2025-05-16 22:32:37,199 - DEBUG - Actions remaining after update: 1
+2025-05-16 22:32:40,714 - INFO - Valeros attempts Power Attack with 3 actions remaining
+2025-05-16 22:32:40,714 - INFO - Valeros attacks Ogre with dice (2, 10)
+2025-05-16 22:32:40,714 - INFO - Power Attack completed. Hit: True. Using 2 actions.
+2025-05-16 22:32:40,714 - DEBUG - Handling action result: 2 actions used, 3 actions remaining
+2025-05-16 22:32:40,714 - DEBUG - Actions remaining after update: 1
+2025-05-16 22:32:42,263 - INFO - Valeros attacks Ogre with dice (1, 10)
+2025-05-16 22:32:42,263 - DEBUG - Handling action result: (1, False) actions used, 1 actions remaining

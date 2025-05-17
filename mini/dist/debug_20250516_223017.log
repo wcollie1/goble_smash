@@ -1,0 +1,34 @@
+2025-05-16 22:30:17,823 - INFO - Python version: 3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]
+2025-05-16 22:30:17,823 - INFO - Pygame version: 2.6.1
+2025-05-16 22:30:17,824 - INFO - Working directory: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\mini\dist
+2025-05-16 22:30:17,824 - INFO - System platform: win32
+2025-05-16 22:30:17,824 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1387162
+2025-05-16 22:30:17,824 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/fighter.webp
+2025-05-16 22:30:17,825 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1387162
+2025-05-16 22:30:17,825 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/rogue.webp
+2025-05-16 22:30:17,825 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1387162
+2025-05-16 22:30:17,825 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/wizard.webp
+2025-05-16 22:30:17,825 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1387162
+2025-05-16 22:30:17,825 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/goblin.webp
+2025-05-16 22:30:17,825 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1387162
+2025-05-16 22:30:17,825 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/ogre.webp
+2025-05-16 22:30:17,825 - DEBUG - Using PyInstaller base path: C:\Users\johna\AppData\Local\Temp\_MEI1387162
+2025-05-16 22:30:17,825 - DEBUG - Full resource path: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/wyvern.webp
+2025-05-16 22:30:19,135 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/wizard.webp
+2025-05-16 22:30:19,136 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/wizard.webp
+2025-05-16 22:30:19,140 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/wizard.webp
+2025-05-16 22:30:19,140 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/fighter.webp
+2025-05-16 22:30:19,140 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/fighter.webp
+2025-05-16 22:30:19,143 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/fighter.webp
+2025-05-16 22:30:19,143 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/rogue.webp
+2025-05-16 22:30:19,143 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/rogue.webp
+2025-05-16 22:30:19,145 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/rogue.webp
+2025-05-16 22:30:19,145 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/goblin.webp
+2025-05-16 22:30:19,145 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/goblin.webp
+2025-05-16 22:30:19,153 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/goblin.webp
+2025-05-16 22:30:19,153 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/ogre.webp
+2025-05-16 22:30:19,153 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/ogre.webp
+2025-05-16 22:30:19,159 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/ogre.webp
+2025-05-16 22:30:19,160 - INFO - Attempting to load sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/wyvern.webp
+2025-05-16 22:30:19,160 - DEBUG - Sprite path exists: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/wyvern.webp
+2025-05-16 22:30:19,167 - INFO - Successfully loaded and scaled sprite: C:\Users\johna\AppData\Local\Temp\_MEI1387162\images/wyvern.webp
