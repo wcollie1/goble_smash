@@ -1,0 +1,17 @@
+2025-05-19 06:53:37,279 - INFO - Python version: 3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)]
+2025-05-19 06:53:37,279 - INFO - Pygame version: 2.6.1
+2025-05-19 06:53:37,280 - INFO - Working directory: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash
+2025-05-19 06:53:37,280 - INFO - System platform: win32
+2025-05-19 06:53:37,280 - INFO - Created images directory
+2025-05-19 06:53:37,280 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash
+2025-05-19 06:53:37,281 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\images/fighter.webp
+2025-05-19 06:53:37,281 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash
+2025-05-19 06:53:37,281 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\images/rogue.webp
+2025-05-19 06:53:37,282 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash
+2025-05-19 06:53:37,282 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\images/wizard.webp
+2025-05-19 06:53:37,282 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash
+2025-05-19 06:53:37,282 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\images/goblin.webp
+2025-05-19 06:53:37,282 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash
+2025-05-19 06:53:37,282 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\images/ogre.webp
+2025-05-19 06:53:37,282 - DEBUG - Using development base path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash
+2025-05-19 06:53:37,282 - DEBUG - Full resource path: C:\Users\johna\OneDrive\Documents\Education\Software Development Operations\pf2e_simulator\goble_smash\images/wyvern.webp
